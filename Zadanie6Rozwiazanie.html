@@ -1,0 +1,35 @@
+<!-- 
+Zadanie 6
+---
+Napisz funkcję która oblicza minimalną liczbę kroków wymaganych rozwiązania problemu Wież Hanoi*.
+
+> *[Wieże Hanoi](https://pl.wikipedia.org/wiki/Wie%C5%BCe_Hanoi)
+-->
+
+<body>
+    <script>
+        // call the function to start solving the puzzle for 7 disks
+        solve_tower_of_hanoi(7, "A", "C", "B");
+
+        function solve_tower_of_hanoi(disk, start, destination, staging) {
+            if (disk == 1) {
+                // base case of 1 disk, we know how to solve that
+                document.write("Move disk 1 from post " + start + " to post " + destination +
+                    ".<br/>");
+
+            } else {
+                // first solve for 6 disks (i.e., disk - 1)
+                solve_tower_of_hanoi(disk - 1, start, staging, destination);
+
+                // now move the 7th disk
+                document.write("Move disk " + disk + " from post " + start + " to post " +
+                    destination + ".<br/>");
+
+                // now solve for the 6 disks from post B to post C
+                solve_tower_of_hanoi(disk - 1, staging, destination, start);
+            }
+        }
+    </script>
+</body>
+
+</html>

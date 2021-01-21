@@ -1,0 +1,36 @@
+<!-- 
+Zadanie 2
+---
+Napisz funkcję która odwróci kolejność cyfr dla przekazanej w argumencie liczby.
+
+Przykład:
+Dla liczby `32243` zwracana wartość to `34223`
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function reverse(number) {
+            var numString = number.toString();
+            var numLen = numString.length;
+
+            var array = [];
+
+            for (i = 0; i < numLen; i++) {
+                array.unshift(numString[i]);
+            }
+            return array;
+        }
+        reverse(32243);
+    </script>
+</body>
+
+</html>

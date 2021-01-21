@@ -1,0 +1,44 @@
+<!-- 
+Zadanie 4
+---
+Napisz funkcję która dla przekazanego w argumencie wyrazu zwróci tablicę wszystkich możliwych permutacji* liter.
+
+Przykład:
+Dla tekstu `DOG` zwracana wartość to `['DOG', 'ODG', 'GDO', 'DGO', 'OGD', 'GOD']`
+
+> *[Permutacja](https://pl.wikipedia.org/wiki/Permutacja)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var permArr = [],
+            usedChars = [];
+
+        function permute(input) {
+            var i, ch; 
+            var chars = input.split("");  //zmienna chars jest tablicą z literami jako pola
+            for (i = 0; i < chars.length; i++) {
+                ch = chars.splice(i, 1);
+                usedChars.push(ch);
+                if (chars.length == 0)
+                    permArr[permArr.length] = usedChars.join("");
+                permute(chars.join(""));
+                chars.splice(i, 0, ch);
+                usedChars.pop();
+            }
+            return permArr;
+        };
+        permute("Dog");
+    </script>
+</body>
+
+</html>

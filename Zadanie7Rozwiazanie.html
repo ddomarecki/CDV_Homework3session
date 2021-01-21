@@ -1,0 +1,44 @@
+<!-- 
+Zadanie 7
+---
+
+Napisz funkcję `flatten` która dla przekazanej tablicy tablic zwróci tablicę składającą się z elementów tablic wewnętrznych.
+
+Przykład:
+Dla tablicy `[[1, 2], [3, 4]]` zwracana wartość to `[1, 2, 3, 4]`
+
+
+Wersja zaawansowana:
+---
+
+Dodaj obsługę dowolnego zagnieżdżenia tablic.
+
+Przykład:
+Dla tablicy `[1, [2], [[3, 4], [5]]]` zwracana wartość to `[1, 2, 3, 4, 5]`
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function flatten(arr) {
+            return arr.reduce(function (flat, toFlatten) {
+                return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+            }, []);
+        }
+        flatten([
+            [1, 2, 3],
+            [4, 5]
+        ]); // [1, 2, 3, 4, 5]
+    </script>
+</body>
+
+</html>

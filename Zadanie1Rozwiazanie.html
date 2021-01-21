@@ -1,0 +1,35 @@
+<!-- 
+Zadanie 1
+---
+Napisz funkcję która dla przekazanego argumentu zwróci typ danych. Dla obiektów dodatkowo powinna zostać zwrócona nazwa klasy.
+
+Przykład:
+Dla wartości `1` zwracana wartość to `"number"`
+Dla wartości `new Date()` zwracana wartość to `"object Date"`
+Dla wartości `fetch('https://api.github.com/users/juszczak')` zwracana wartość to `"object Promise"`
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function typeOf(data) {
+
+            if (typeof (data) === "object") {
+                return typeof (data) + " " + (data).constructor.name;
+            } else
+                return typeof (data);
+        }
+
+        typeOf(fetch('https://api.github.com/users/juszczak'));
+    </script>
+</body>
+
+</html>
